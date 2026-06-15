@@ -3,7 +3,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import hero from './assets/hero.png'
 import './App.css'
-
 import Card from './components/Cardcomponent/Card.jsx';
 import Image from './components/ImageComponent/Image.jsx';
 
