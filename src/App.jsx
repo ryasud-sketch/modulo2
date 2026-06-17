@@ -1,13 +1,37 @@
-import { useState } from 'react'
 import logo from './assets/logo.jpg'
+import arroz from './assets/arroz tucapel 1k.jpg'
+import azucar from './assets/azucar iansa 1kg.jpg'
+import fideos from './assets/fideos carozzi 5.JPG'
+import mayonesa from './assets/mayonesa hellmans 1 kg.jpg'
+import sal from './assets/sal 1 kg.jpg'
 import './App.css'
 
-import Card from './components/Cardcomponent/Card.jsx';
-import Image from './components/ImageComponent/Image.jsx';
+import Card from './components/Cardcomponent/Card.jsx'
+import Footer from './components/footer/footer.jsx'
+
+const products = [
+  { id: 1, name: 'Arroz Tucapel 1kg', price: '$1200', img: arroz },
+  { id: 2, name: 'Azúcar Iansa 1kg', price: '$1000', img: azucar },
+  { id: 3, name: 'Fideos Carozzi 500g', price: '$950', img: fideos },
+  { id: 4, name: "Mayonesa Hellmann's 1kg", price: '$2800', img: mayonesa },
+  { id: 5, name: 'Sal 1kg', price: '$900', img: sal },
+]
+
+const footerData = {
+  footerId: 'footer',
+  contactTitle: 'Información de contacto',
+  email: 'SupermercadoElEconomico@gmail.com',
+  hours: 'Lunes a Viernes, 9:00 AM - 6:00 PM',
+  phone: '123-456-7890',
+  address: 'Av Pepito 2026',
+  socialLinks: [
+    { id: 'social-linkedin', href: '#', label: 'LinkedIn' },
+    { id: 'social-facebook', href: '#', label: 'Facebook' },
+    { id: 'social-instagram', href: '#', label: 'Instagram' },
+  ],
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <header>
@@ -21,8 +45,7 @@ function App() {
             </button>
             <div className="navbar-collapse collapse" id="menuPrincipal">
               <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-                <li className="nav-item"><a className="nav-link active" href="#">Inicio</a></li>
-                <li className="nav-item"><a className="nav-link" href="#caracteristicas">Características</a></li>
+                <li className="nav-item"><a className="nav-link active" href="#center">Inicio</a></li>
                 <li className="nav-item"><a className="nav-link" href="#pricing">Precios</a></li>
                 <li className="nav-item"><a className="nav-link" href="#footer">Información</a></li>
               </ul>
@@ -42,9 +65,16 @@ function App() {
         
       </section>
 
-      <div>
-        <Card />
-      </div>
+      <section id="pricing">
+        <Card
+          products={products}
+          buttonText="Comprar"
+          buttonIdPrefix="boton"
+          onBuy={(product) => console.log('Comprando', product.name)}
+        />
+      </section>
+
+      <Footer {...footerData} />
 
       <div className="ticks"></div>
       <section id="spacer"></section>

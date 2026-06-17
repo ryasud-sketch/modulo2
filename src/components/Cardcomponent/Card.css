@@ -1,0 +1,98 @@
+/* Estilos básicos para el componente Card */
+/* Estilos para fila de productos */
+.products-row {
+	display: flex;
+	gap: 18px;
+	flex-wrap: wrap;
+	/* allow items to wrap so all fit on screen */
+	padding: 12px 18px;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.product-card {
+	flex: 1 1 200px;
+	max-width: 260px;
+	min-width: 160px;
+	/* asegurar altura consistente para alinear botones */
+	min-height: 300px;
+	border: 1px solid rgba(0,0,0,0.08);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+}
+
+.product-card img {
+	width: 100%;
+	height: 140px;
+	object-fit: cover;
+	display: block;
+}
+
+.card-body {
+	padding: 10px 12px;
+	text-align: center;
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end; /* empuja el botón hacia la base de la tarjeta */
+}
+
+.card-body h3 {
+	font-size: 15px;
+	margin: 0 0 6px;
+}
+
+.price {
+	margin: 0 0 8px;
+	color: #444;
+	font-weight: 600;
+}
+
+.btn-buy {
+	background-color: #28a745;
+	color: #fff;
+	border: none;
+	padding: 8px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.btn-buy:hover {
+	background-color: #218838;
+}
+
+@media (max-width: 1024px) {
+	.products-row {
+		gap: 12px;
+	}
+	.product-card {
+		flex: 1 1 180px;
+		max-width: 220px;
+	}
+}
+
+@media (max-width: 520px) {
+	.products-row {
+		gap: 10px;
+		padding: 10px;
+	}
+	.product-card {
+		flex: 1 1 140px;
+		max-width: 160px;
+	}
+	.product-card img {
+		height: 110px;
+	}
+	.card-body h3 {
+		font-size: 13px;
+	}
+	.price {
+		font-size: 13px;
+	}
+}
+
