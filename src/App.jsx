@@ -6,8 +6,10 @@ import mayonesa from './assets/mayonesa hellmans 1 kg.jpg'
 import sal from './assets/sal 1 kg.jpg'
 import './App.css'
 
+import { useState } from 'react'
 import Card from './components/Cardcomponent/Card.jsx'
 import Footer from './components/footer/footer.jsx'
+import SearchBar from './components/SearchBar/searchbar.jsx'
 
 const products = [
   { id: 1, name: 'Arroz Tucapel 1kg', price: '$1200', img: arroz },
@@ -32,6 +34,13 @@ const footerData = {
 }
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    console.log('Buscando:', term);
+  };
+
   return (
     <>
       <header>
@@ -43,6 +52,11 @@ function App() {
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
+            <SearchBar
+              id="buscador-principal"
+              placeholder="Buscar productos..."
+              onSearch={handleSearch}
+            />
             <div className="navbar-collapse collapse" id="menuPrincipal">
               <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
                 <li className="nav-item"><a className="nav-link active" href="#center">Inicio</a></li>
