@@ -1,7 +1,7 @@
 import './searchbar.css';
 import { useState } from 'react';
 
-export default function SearchBar({ id, placeholder = 'Buscar productos...', onSearch }) {
+export default function SearchBar({ id, placeholder = 'Buscar productos...', onSearch, results = [], onSelect }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (e) => {
@@ -15,21 +15,48 @@ export default function SearchBar({ id, placeholder = 'Buscar productos...', onS
     onSearch?.(searchTerm);
   };
 
+  const showDropdown = searchTerm.trim() !== '';
+
   return (
-    <form id={id} className="searchbar-form" onSubmit={handleSubmit}>
-      <div className="searchbar-container">
-        <input
-          type="text"
-          className="searchbar-input"
-          placeholder={placeholder}
-          value={searchTerm}
-          onChange={handleChange}
-          aria-label="Buscar productos"
-        />
-        <button type="submit" className="searchbar-btn" aria-label="Enviar búsqueda">
-          🔍
-        </button>
-      </div>
-    </form>
+    <div className="searchbar-wrapper">
+      <form id={id} className="searchbar-form" onSubmit={handleSubmit}>
+        <div className="searchbar-container">
+          <input
+            type="text"
+            className="searchbar-input"
+            placeholder={placeholder}
+            value={searchTerm}
+            onChange={handleChange}
+            aria-label="Buscar productos"
+          />
+          <button type="submit" className="searchbar-btn" aria-label="Enviar búsqueda">
+            🔍
+          </button>
+        </div>
+      </form>
+
+      {showDropdown && (
+        <div className="searchbar-dropdown">
+          {results.length > 0 ? (
+            results.map((product) => (
+              <button
+                type="button"
+                key={product.id}
+                className="searchbar-item"
+                onClick={() => onSelect?.(product)}
+              >
+                <img src={product.img} alt={product.name} />
+                <div className="searchbar-item-content">
+                  <span>{product.name}</span>
+                  <span>{product.price}</span>
+                </div>
+              </button>
+            ))
+          ) : (
+            <div className="searchbar-no-results">No se encontró ningún producto.</div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

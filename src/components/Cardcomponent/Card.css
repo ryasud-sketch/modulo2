@@ -96,3 +96,37 @@
 	}
 }
 
+.products-row--compact {
+	gap: 12px;
+	justify-content: flex-start;
+}
+
+.product-card--compact {
+	max-width: 200px;
+	min-height: 240px;
+}
+
+.product-card--compact img {
+	height: 120px;
+}
+
+.product-card--compact .card-body {
+	padding: 10px 10px;
+}
+
+.search-results {
+	padding: 24px 18px;
+}
+
+.search-results h2 {
+	font-size: 1.25rem;
+	margin: 0 0 14px;
+	text-align: center;
+}
+
+.search-empty {
+	text-align: center;
+	color: #555;
+	margin: 12px 0 0;
+}
+

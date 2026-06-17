@@ -41,6 +41,14 @@ function App() {
     console.log('Buscando:', term);
   };
 
+  const normalizedSearch = searchTerm.trim().toLowerCase();
+  const searchResults = normalizedSearch
+    ? products.filter((product) =>
+        product.name.toLowerCase().includes(normalizedSearch) ||
+        product.id.toString().includes(normalizedSearch)
+      )
+    : [];
+
   return (
     <>
       <header>
@@ -56,6 +64,8 @@ function App() {
               id="buscador-principal"
               placeholder="Buscar productos..."
               onSearch={handleSearch}
+              results={searchResults}
+              onSelect={(product) => console.log('Seleccionado', product.name)}
             />
             <div className="navbar-collapse collapse" id="menuPrincipal">
               <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
