@@ -92,9 +92,9 @@ function App() {
       <section id="pricing">
         <Card
           products={products}
-          buttonText="Comprar"
+          buttonText="Añadir al Carrito"
           buttonIdPrefix="boton"
-          onBuy={(product) => console.log('Comprando', product.name)}
+          onBuy={(product) => console.log('Añadido al carrito', product.name)}
         />
       </section>
 

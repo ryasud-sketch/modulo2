@@ -1,7 +1,7 @@
 import './Card.css';
 import Button from '../buttoncomponent/buton.jsx';
 
-export default function Card({ products = [], buttonText = 'Comprar', buttonIdPrefix = 'product-buy', onBuy, compact = false }) {
+export default function Card({ products = [], buttonText = 'Añadir al Carrito', buttonIdPrefix = 'product-buy', onBuy, compact = false }) {
   return (
     <div className={`products-row${compact ? ' products-row--compact' : ''}`}>
       {products.map((product) => (
