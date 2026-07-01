@@ -1,4 +1,4 @@
-function productCard({product}) {
+function ProductCard({product}) {
      return (
         <>
           <img src= {product.thumbnail}></img>
@@ -11,4 +11,4 @@ function productCard({product}) {
      )
 }
 
-export default productCard;
+export default ProductCard;
