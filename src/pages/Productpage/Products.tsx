@@ -1,7 +1,7 @@
-import ProductList from "../../components/Productlist/Productlist";
+import ProductList from '../../components/ProductList';
 
 function Products() {
-    return <ProductList />
+  return <ProductList />;
 }
 
 export default Products;
