@@ -1,7 +1,7 @@
 import logo from '../../assets/logo.jpg';
 import arroz from '../../assets/arroz tucapel 1k.jpg';
 import azucar from '../../assets/azucar iansa 1kg.jpg';
-import fideos from '../../assets/fideos carozzi 5.JPG';
+import fideos from '../../assets/fideos carozzi 5.jpg';
 import mayonesa from '../../assets/mayonesa hellmans 1 kg.jpg';
 import sal from '../../assets/sal 1 kg.jpg';
 import '../../App.css';

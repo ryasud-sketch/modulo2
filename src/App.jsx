@@ -21,6 +21,7 @@ const products = [
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const filteredProducts = useMemo(() => {
     const normalized = searchTerm.trim().toLowerCase();
@@ -42,6 +43,16 @@ function App() {
                 <img src={logo} alt="Grupo G" height="120" />
               </Link>
             </div>
+            <button
+              className="navbar-toggler"
+              type="button"
+              aria-controls="menuPrincipal"
+              aria-expanded={isMenuOpen}
+              aria-label="Alternar navegación"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
             <div className="navbar-search-wrap">
               <SearchBar
                 id="nav-buscador"
@@ -51,16 +62,22 @@ function App() {
                 onSelect={() => {}}
               />
             </div>
-            <div className="navbar-collapse collapse" id="menuPrincipal">
+            <div className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="menuPrincipal">
               <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">Inicio</Link>
+                  <Link className="nav-link" to="/" onClick={() => setIsMenuOpen(false)}>
+                    Inicio
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/products">Productos</Link>
+                  <Link className="nav-link" to="/products" onClick={() => setIsMenuOpen(false)}>
+                    Productos Exportados
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#footer">Información</a>
+                  <a className="nav-link" href="#footer" onClick={() => setIsMenuOpen(false)}>
+                    Información
+                  </a>
                 </li>
               </ul>
             </div>

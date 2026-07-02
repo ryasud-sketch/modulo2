@@ -60,7 +60,7 @@ function ProductList() {
     return translations.reduce((acc, { from, to }) => acc.replace(new RegExp(from, 'gi'), to), text);
   };
 
-  const translateCategory = (category: string) => {
+  const translateCategory = (category?: string) => {
     const categories: Record<string, string> = {
       beauty: 'Belleza',
       fragrances: 'Fragancias',
@@ -73,7 +73,11 @@ function ProductList() {
       laptops: 'Portátiles',
     };
 
-    return categories[category?.toLowerCase()] || category || 'General';
+    if (!category) {
+      return 'General';
+    }
+
+    return categories[category.toLowerCase()] || category;
   };
 
   useEffect(() => {
